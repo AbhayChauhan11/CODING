@@ -31,6 +31,6 @@ int main(int argc, char const *argv[])
  (a).logic is simple insert new element and delete the element which is inserted already at the 
  end you are left with only non repeating element.
  disadvantage is time complexity is O(n) and space complexity is O(n).
-2. Using the xor logic 
+2. Using the xor logic (but the above logic work only when there one non repeating elemtent)
    Time Complexity is O(n) and Space is O(1).
 */
