@@ -14,19 +14,23 @@ public:
        return a;
     }
     else{
-    int i=1,res=0,res1=0;
-      for(int i=0;i<n;i++){
-        res1=res;
-       res=res^arr[i];  }
-       if(res1==0){
-        a.push_back(res);
-        return a;
+    int sum=arr[0],res=0,res1=0;
+      for(int i=1;i<n;i++){
+       sum=sum^arr[i];  }
+       int Number_with_rightmostbit_Set=sum & ~(sum-1);// finding the right most set bit number
+       for (int i = 0; i < n; i++) {
+         /*Making two no one containing set only and other containing unset only */
+        if (arr[i] & Number_with_rightmostbit_Set)
+               res=res^arr[i];
+        else
+              res1=res1^arr[i];
        }
-    res=res^res1;
-    a.push_back(res);
-    a.push_back(res1);
-    return a;
-       }
+       res=res^sum;
+       res1=res1^sum;
+       a.push_back(res);
+       a.push_back(res1);
+       return a;
+ }
  }
 };
 
